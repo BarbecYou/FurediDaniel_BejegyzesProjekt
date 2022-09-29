@@ -9,6 +9,7 @@ public class Bejegyzes {
     int likeok;
     LocalDateTime letrejott;
     LocalDateTime szerkesztve;
+    private boolean voltSzerkeztve;
 
     public Bejegyzes(String szerzo, String tartalom) {
         this.szerzo = szerzo;
@@ -16,6 +17,7 @@ public class Bejegyzes {
         this.likeok = 0;
         this.letrejott = LocalDateTime.now();
         this.szerkesztve = LocalDateTime.now();
+        this.voltSzerkeztve = false;
     }
 
     public String getSzerzo() {
@@ -29,6 +31,7 @@ public class Bejegyzes {
     public void setTartalom(String tartalom) {
         this.tartalom = tartalom;
         this.szerkesztve = LocalDateTime.now();
+        voltSzerkeztve = true;
     }
 
     public int getLikeok() {
@@ -45,5 +48,13 @@ public class Bejegyzes {
 
     public void like(){
         this.likeok++;
+    }
+
+    @Override
+    public String toString() {
+        return this.szerzo + " - " + this.likeok + " - "
+                + this.letrejott + "\n"
+                + (this.voltSzerkeztve ? ("Szerkesztve: " + this.szerkesztve + "\n") : "")
+                + this.tartalom;
     }
 }
