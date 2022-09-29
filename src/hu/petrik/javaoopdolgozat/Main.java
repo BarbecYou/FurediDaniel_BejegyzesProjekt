@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -30,9 +31,15 @@ public class Main {
             String[] temp = sc.nextLine().split(";");
             lista2.add(new Bejegyzes(temp[0], temp[1]));
         }
+        int sokLike = (int)lista2.stream().count() * 20;
+        Random rnd = new Random();
+        int randomIndex;
+        for (int i = 0; i < sokLike; i++){
+            randomIndex = rnd.nextInt((int)lista2.stream().count());
+            lista2.get(randomIndex).like();
+        }
         for (Bejegyzes b : lista2){
-
-            System.out.println(b);
+            System.out.println(b.likeok);
         }
     }
 
