@@ -75,6 +75,7 @@ public class Main {
             }
         }
         System.out.println(kevesebbMint15 + " bejegyzés kapott kevesebb, mint 15 likeot");
+
     }
 
     private static void listaFeltoltesFeladat(){
