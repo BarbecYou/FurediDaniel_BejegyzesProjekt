@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import static java.util.Objects.isNull;
+
 public class Main {
 
     public static List<Bejegyzes> lista1 = new ArrayList<>();
@@ -48,6 +50,31 @@ public class Main {
         for (Bejegyzes b : lista2){
             System.out.println(b);
         }
+
+        int legtobbLike = 0;
+        for (Bejegyzes b : lista2){
+            if (b.likeok > legtobbLike){
+                legtobbLike = b.likeok;
+            }
+        }
+        System.out.println("A legtöbb like: " + legtobbLike);
+
+        Bejegyzes tobbMint35 = null;
+        for (Bejegyzes b : lista2){
+            if (b.likeok > 35){
+                tobbMint35 = b;
+            }
+        }
+        System.out.println(isNull(tobbMint35) ? "Nincs olyan bejegyzés, mely több, mint 35 likeot kapott"
+                : tobbMint35);
+
+        int kevesebbMint15 = 0;
+        for (Bejegyzes b : lista2){
+            if (b.likeok < 15){
+                kevesebbMint15++;
+            }
+        }
+        System.out.println(kevesebbMint15 + " bejegyzés kapott kevesebb, mint 15 likeot");
     }
 
     private static void listaFeltoltesFeladat(){
