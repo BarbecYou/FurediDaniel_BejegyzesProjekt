@@ -45,6 +45,9 @@ public class Main {
         lista2.get(1).setTartalom(bekertSzoveg);
         sc2.close();
 
+        for (Bejegyzes b : lista2){
+            System.out.println(b);
+        }
     }
 
     private static void listaFeltoltesFeladat(){
