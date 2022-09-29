@@ -31,6 +31,7 @@ public class Main {
             String[] temp = sc.nextLine().split(";");
             lista2.add(new Bejegyzes(temp[0], temp[1]));
         }
+        sc.close();
         int sokLike = (int)lista2.stream().count() * 20;
         Random rnd = new Random();
         int randomIndex;
@@ -38,9 +39,12 @@ public class Main {
             randomIndex = rnd.nextInt((int)lista2.stream().count());
             lista2.get(randomIndex).like();
         }
-        for (Bejegyzes b : lista2){
-            System.out.println(b.likeok);
-        }
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("Adjon meg egy szöveget: ");
+        String bekertSzoveg = sc2.nextLine();
+        lista2.get(1).setTartalom(bekertSzoveg);
+        sc2.close();
+
     }
 
     private static void listaFeltoltesFeladat(){
